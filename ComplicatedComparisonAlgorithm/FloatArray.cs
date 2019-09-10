@@ -4,7 +4,6 @@ namespace ComplicatedComparisonAlgorithm {
 
 	public sealed class FloatArray {
 		private readonly float[] _values;
-		private readonly int _precomputedHash;
 
 		public readonly int Count;
 
@@ -16,12 +15,6 @@ namespace ComplicatedComparisonAlgorithm {
 
 			_values = values.ToArray();
 			Count = _values.Length;
-
-			var hash = new HashCode();
-			for (int i = 0; i < _values.Length; i++)
-				hash.Add(_values[i]);
-
-			_precomputedHash = hash.ToHashCode();
 		}
 
 		public float this[int index] => _values[index];
